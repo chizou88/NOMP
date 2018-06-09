@@ -56,26 +56,26 @@ function searchKeyPress(e)
     <div class="poolWrapper">
         <div class="poolLabel">
 			<span style="float:right; margin-bottom: 8px;">
-				<small>Miner Lookup: 
+				<small>マイナー検索: 
 				<input type="text" class="form-control input-lg" onkeypress="return searchKeyPress(event);">
 				<span class="input-group-btn">
-						<button class="btn btn-default btn-lg" type="button">Lookup</button>
+						<button class="btn btn-default btn-lg" type="button">検索</button>
 				</span>
 				</small>
 			</span>					
-            {{=capitalizeFirstLetter(it.stats.pools[pool].name)}} Top Miners &nbsp;&nbsp;
-			<small><i class="fa fa-users"></i> <span id="statsMiners{{=pool}}">{{=it.stats.pools[pool].minerCount}}</span> Miners &nbsp;&nbsp;
-			<i class="fa fa-rocket"></i> <span id="statsWorkers{{=pool}}">{{=it.stats.pools[pool].workerCount}}</span> Workers &nbsp;&nbsp;
-			<i class="fa fa-cog"></i> <span id="statsWorkers{{=pool}}">{{=it.stats.pools[pool].shareCount}}</span> Shares </small>
+            {{=capitalizeFirstLetter(it.stats.pools[pool].name)}} トップマイナー &nbsp;&nbsp;
+			<small><i class="fa fa-users"></i> <span id="statsMiners{{=pool}}">{{=it.stats.pools[pool].minerCount}}</span> 人 &nbsp;&nbsp;
+			<i class="fa fa-rocket"></i> <span id="statsWorkers{{=pool}}">{{=it.stats.pools[pool].workerCount}}</span> ワーカー &nbsp;&nbsp;
+			<i class="fa fa-cog"></i> <span id="statsWorkers{{=pool}}">{{=it.stats.pools[pool].shareCount}}</span> シェア </small>
 		</div>
         <div class="poolMinerTable">
             <table class="pure-table">
                 <thead>
                 <tr>
-                    <th>Address</th>
-                    <th>Shares</th>
-                    <th>Efficiency</th>
-                    <th>Hashrate</th>
+                    <th>アドレス</th>
+                    <th>シェア</th>
+                    <th>効率</th>
+                    <th>ハッシュレート</th>
                 </tr>
                 </thead>
                 {{ for(var worker in it.stats.pools[pool].miners) { }}

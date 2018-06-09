@@ -227,11 +227,11 @@
     </div>
 
     <div id="main">
-        <a href="#" class="miningOption" id="nompAppDownload">
+        <a href="https://github.com/JayDDee/cpuminer-opt/releases" target="_blank" class="miningOption" id="nompAppDownload" >
             <div class="miningOptionNum">1.</div>
             <div class="miningOptionInstructions">
-                <div>Download NOMP App</div>
-                <div>Our preconfigured app makes mining that easy</div>
+                <div>マイナーをダウンロード</div>
+                <div>マイニング環境に合わせたマイナーをダウンロードしてください</div>
             </div>
         </a>
         <div id="orHolder">
@@ -241,8 +241,8 @@
         <a href="#" class="miningOption" id="coinGlowTrigger">
             <div class="miningOptionNum">2.</div>
             <div class="miningOptionInstructions">
-                <div>Select a coin for connection details</div>
-                <div>Configurations for each coin are available for advanced miners</div>
+                <div>マイナーを起動</div>
+                <div>設定を確認してマイナーを起動してください</div>
             </div>
         </a>
     </div>
@@ -252,7 +252,7 @@
 
 <div id="coinInfo" class="hidden">
     <a href="#" id="coinInfoClose">×</a>
-    <div><span class="coinInfoName"></span> Configuration:</div>
+    <div><span class="coinInfoName"></span> 設定:</div>
     <div id="coinInfoRows">
         <div id="coinInfoRowKeys">
             <div>Username:</div>
@@ -268,22 +268,31 @@
 <script>
 
     function showCoinConfig(info){
-
+        var htmlAlgo = info.algo;
+        if (info.coin.name == 'bitzeny'){
+            htmlAlgo = htmlAlgo + '（minerによっては yescryptr8）'
+        }
         var htmlKeys = '<div class="coinInfoData">Algorithm:</div>';
-        var htmlValues = '<div class="coinInfoData">' + info.algo + '</div>';
-
+        var htmlValues = '<div class="coinInfoData">' + htmlAlgo + '</div>';
+        var htmlKeySample = '<div class="coinInfoData"><br><br>例:<br>(改行なし)<br><br></div></div>';
+        var samplePort = '';
         for (var port in info.ports){
+            if (samplePort == ''){
+                samplePort = port;
+            }
             htmlKeys += '<div class="coinInfoData">URL <span class="coinInfoSubtle">(difficulty ' + info.ports[port].diff + ')</span>:</div>';
             htmlValues += '<div class="coinInfoData">stratum+tcp://' + info.host + ':' + port + '</div>';
         }
-
+        var htmlhtmlValueSample = '<div class="coinInfoData"><br>minerd -a ' + htmlAlgo + '<br> -ostratum+tcp://stratum.minnano-pool.work:' + samplePort + '<br> -u &lt;あなたの' + info.coin.name + ' wallet アドレス&gt;.work_0<br> -p anything</div>';
         if (info.coin)
-            $('#coinInfoUsername').text('your ' + info.coin.name + ' wallet address');
+            $('#coinInfoUsername').text('あなたの ' + info.coin.name + ' wallet アドレス');
         else
             $('#coinInfoUsername').text('your public key');
         $('.coinInfoData').remove();
         $('#coinInfoRowKeys').append(htmlKeys);
+        $('#coinInfoRowKeys').append(htmlKeySample);
         $('#coinInfoRowValues').append(htmlValues);
+        $('#coinInfoRowValues').append(htmlhtmlValueSample);
     }
 
     $('#coinGlowTrigger').click(function(event){
@@ -307,12 +316,6 @@
         event.preventDefault();
         $('#coinInfoBackground,#coinInfo').addClass('hidden');
         $('#coinInfoBackground').css('opacity', 0.0);
-        return false;
-    });
-
-    $('#nompAppDownload').click(function(event){
-        event.preventDefault();
-        alert('NOMP App development still in progress...');
         return false;
     });
 </script>

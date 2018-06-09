@@ -35,16 +35,16 @@
 <table class="pure-table">
     <thead>
     <tr>
-        <th>Pool</th>
-        <th>Algo</th>
-        <th>Workers</th>
-        <th>Valid Shares</th>
-        <th>Invalid Shares</th>
-        <th>Total Blocks</th>
-        <th>Pending</th>
-        <th>Confirmed</th>
-        <th>Orphaned</th>
-        <th>Hashrate</th>
+        <th>プール</th>
+        <th>計算方法</th>
+        <th>ワーカー</th>
+        <th>有効シェア</th>
+        <th>無効シェア</th>
+        <th>発見ブロック</th>
+        <th>確認中</th>
+        <th>確認済</th>
+        <th>無効ブロック</th>
+        <th>ハッシュレート</th>
     </tr>
     </thead>
     {{ for(var pool in it.stats.pools) { }}
