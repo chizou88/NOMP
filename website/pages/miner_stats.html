@@ -81,16 +81,16 @@
         <div class="chartLabel">
 			<!--<div style="float:left; padding-right: 18px;"><i class="fa fa-users"></i><span id="statsWorkers">...</span></div>-->			
 			<div style="float:left; margin-right: 9px;">{{=String(it.stats.address).split(".")[0]}}</div>
-			<div style="float:right; padding-left: 18px;"><small><i class="fa fa-tachometer"></i> <span id="statsHashrateAvg">...</span> (Avg)</small></div>
-			<div style="float:right; padding-left: 18px;"><small><i class="fa fa-tachometer"></i> <span id="statsHashrate">...</span> (Now)</small></div>
-			<div style="float:right; padding-left: 18px;"><small><i class="fa fa-gavel"></i> Luck <span id="statsLuckDays">...</span> Days</small></div>
+			<div style="float:right; padding-left: 18px;"><small><i class="fa fa-tachometer"></i> <span id="statsHashrateAvg">...</span> (平均)</small></div>
+			<div style="float:right; padding-left: 18px;"><small><i class="fa fa-tachometer"></i> <span id="statsHashrate">...</span> (現在)</small></div>
+			<div style="float:right; padding-left: 18px;"><small><i class="fa fa-gavel"></i> 期待値 <span id="statsLuckDays">...</span> 日毎に発見</small></div>
 		</div>
 		<div class="chartHolder"><svg id="workerHashrate" /></div>
 		<div>
-			<div style="float:right; padding-top: 9px; padding-right: 18px;"><i class="fa fa-cog"></i> Shares: <span id="statsTotalShares">...</span></div>
-			<div style="float:left; padding-top: 9px; padding-left: 18px; padding-right: 18px;"><i class="fa fa-money"></i> Immature: <span id="statsTotalImmature">...</span> </div>
-			<div style="float:left; padding-top: 9px; padding-left: 18px; padding-right: 18px;"><i class="fa fa-money"></i> Bal: <span id="statsTotalBal">...</span>  </div>
-			<div style="padding-top: 9px; padding-left: 18px;"><i class="fa fa-money"></i> Paid: <span id="statsTotalPaid">...</span>  </div>
+			<div style="float:right; padding-top: 9px; padding-right: 18px;"><i class="fa fa-cog"></i> シェア: <span id="statsTotalShares">...</span></div>
+			<div style="float:left; padding-top: 9px; padding-left: 18px; padding-right: 18px;"><i class="fa fa-money"></i> 確認中: <span id="statsTotalImmature">...</span> </div>
+			<div style="float:left; padding-top: 9px; padding-left: 18px; padding-right: 18px;"><i class="fa fa-money"></i> 残高: <span id="statsTotalBal">...</span>  </div>
+			<div style="padding-top: 9px; padding-left: 18px;"><i class="fa fa-money"></i> 支払済: <span id="statsTotalPaid">...</span>  </div>
 		</div>
     </div>
 </div>
