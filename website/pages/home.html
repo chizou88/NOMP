@@ -79,7 +79,7 @@
         position: relative;
     }
     .slider-wrapper {
-        width: 200%;
+        width: 300%;
         position: relative;
         left: 0;
         will-change: transform;
@@ -87,7 +87,8 @@
     }
     @keyframes slider {
           0% { transform: translateX(0); }
-         50% { transform: translateX(-285px); }
+         33% { transform: translateX(-285px); }
+         66% { transform: translateX(-570px); }
         100% { transform: translateX(0); }
     }
 </style>
@@ -99,15 +100,16 @@
             <div class="slider-wrapper">
                 <div class="slide-item"><img src="/static/logo_zeny.png"></div>
                 <div class="slide-item"><img src="/static/logo_koto.png"></div>
+                <div class="slide-item"><img src="/static/logo_mona.png"></div>
             </div>
     </div>
     </div>
     <div class="pure-u-2-3">
         <div id="welcomeText">みんなのプールへようこそ</div>
         <ul id="welcomeItems">
-            <li>登録不要</li>
-            <li>日本国内サーバで運用</li>
-            <li>支払い方法：PROP、Fee：1%、最低支払コイン数：0.1</li>
+            <li>ユーザー登録不要のマイニングプール</li>
+            <li>支払い方法：PROP</li>
+            <li>Pool Fee：0.5%、最低支払コイン数：0.1</li>
         </ul>
     </div>
 </div>

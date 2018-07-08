@@ -1,5 +1,5 @@
 {
-    "name": "z-nomp",
+    "name": "NOMP-J",
     "version": "0.0.4",
     "description": "KotoCoin (yescrypt) stratum mining pool based on NOMP",
     "keywords": [
@@ -36,7 +36,7 @@
     },
     "dependencies": {
         "async": "2.3.0",
-        "bignum": "0.12.5",
+        "bignum": "^0.12.5",
         "body-parser": "1.17.1",
         "colors": "1.1.2",
         "compression": "1.6.2",

@@ -90,11 +90,19 @@
 <div id="topCharts">
     <div class="chartWrapper">
         <div class="chartLabel">ハッシュレートの推移</div>
-        <div class="chartHolder"><svg id="poolHashrate"/></div>
+        <div class="chartHolder"><svg id="poolHashrate_0"/></div>
+        <div class="chartHolder"><svg id="poolHashrate_1"/></div>
+        <div class="chartHolder"><svg id="poolHashrate_2"/></div>
     </div>
 </div>
 {{ function capitalizeFirstLetter(t){return t.charAt(0).toUpperCase()+t.slice(1)} }}
-{{ function readableDate(a){ return new Date(parseInt(a)).toString(); } }}
+{{ function dateformatYYYY(date){ return date.getFullYear(); } }}
+{{ function dateformatMM(date){ return date.getMonth() + 1; } }}
+{{ function dateformatDD(date){ return date.getDate(); } }}
+{{ function dateformatHH(date){ return date.getHours(); } }}
+{{ function dateformatMI(date){ return date.getMinutes(); } }}
+{{ function dateformat(date){ return dateformatYYYY(date) + '/' + dateformatMM(date) + '/' + dateformatDD(date) + ' ' + dateformatHH(date) + ':' + dateformatMI(date); } }}
+{{ function readableDate(a){ return dateformat(new Date(parseInt(a))); } }}
 <div class="pure-g-r" id="boxesLower">
     {{ for(var pool in it.stats.pools) { }}
     <div class="pure-u-1-2">
@@ -153,6 +161,8 @@
                         <a href="https://insight.bitzeny.jp/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
                     {{ } else if (String(it.stats.pools[pool].name).startsWith("koto")) { }}
                         <a href="https://insight.kotocoin.info/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
+                    {{ } else if (String(it.stats.pools[pool].name).startsWith("monacoin")) { }}
+                        <a href="https://mona.chainsight.info/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
 					{{ } else { }}
                                             {{=block[2]}}
                                         {{ } }}
@@ -185,7 +195,8 @@
                         <a href="https://insight.bitzeny.jp/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
                     {{ } else if (String(it.stats.pools[pool].name).startsWith("koto")) { }}
                         <a href="https://insight.kotocoin.info/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
-
+                    {{ } else if (String(it.stats.pools[pool].name).startsWith("monacoin")) { }}
+                        <a href="https://mona.chainsight.info/block/{{=block[0]}}" target="_blank">{{=block[2]}}</a>
 					{{ } else { }}
 						{{=block[2]}}
 					{{ } }}
