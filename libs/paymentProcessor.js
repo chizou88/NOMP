@@ -358,28 +358,28 @@ function SetupForPool(logger, poolOptions, setupFinished){
         var params = null;
         daemon.cmd('getmininginfo', params,
             function (result) {
-              if (!result || result.error || result[0].error || !result[0].response) {
-                  logger.error(logSystem, logComponent, 'Error with RPC call getmininginfo '+JSON.stringify(result[0].error));
-                  return;
-              }
+                if (!result || result.error || result[0].error || !result[0].response) {
+                    logger.error(logSystem, logComponent, 'Error with RPC call getmininginfo '+JSON.stringify(result[0].error));
+                    return;
+                }
 
-              var coin = logComponent;
-              var finalRedisCommands = [];
+                var coin = logComponent;
+                var finalRedisCommands = [];
               if (coin == 'neetcoin') {
                 if (result[0].response.blocks !== null) {
                     finalRedisCommands.push(['hset', coin + ':stats', 'networkBlocks', result[0].response.blocks]);
                 }
-                if (result[0].response.difficulty.proof-of-work !== null) {
-                    finalRedisCommands.push(['hset', coin + ':stats', 'networkDiff', result[0].response.difficulty.proof-of-work]);
+                if (result[0].response.difficulty['proof-of-work'] !== null) {
+                    finalRedisCommands.push(['hset', coin + ':stats', 'networkDiff', result[0].response.difficulty['proof-of-work']]);
                 }
                 if (result[0].response.netmhashps !== null) {
-                    finalRedisCommands.push(['hset', coin + ':stats', 'networkSols', result[0].response.netmhashps] * 1000);
+                    finalRedisCommands.push(['hset', coin + ':stats', 'networkSols', + result[0].response.netmhashps * 1000 ]);
                 }
 
                 daemon.cmd('getinfo', params,
                     function (result) {
                         if (!result || result.error || result[0].error || !result[0].response) {
-                            logger.error(logSystem, logComponent, 'Error with RPC call getnetworkinfo '+JSON.stringify(result[0].error));
+                            logger.error(logSystem, logComponent, 'Error with RPC call getinfo '+JSON.stringify(result[0].error));
                             return;
                         }
 
@@ -390,12 +390,11 @@ function SetupForPool(logger, poolOptions, setupFinished){
                             finalRedisCommands.push(['hset', coin + ':stats', 'networkVersion', result[0].response.version]);
                         }
                         if (result[0].response.subversion !== null) {
-                            finalRedisCommands.push(['hset', coin + ':stats', 'networkSubVersion', result[0].response.subversion]);
+                            finalRedisCommands.push(['hset', coin + ':stats', 'networkSubVersion', result[0].response.version]);
                         }
                         if (result[0].response.protocolversion !== null) {
                             finalRedisCommands.push(['hset', coin + ':stats', 'networkProtocolVersion', result[0].response.protocolversion]);
                         }
-
                         if (finalRedisCommands.length <= 0)
                             return;
 
