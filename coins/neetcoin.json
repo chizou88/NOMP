@@ -1,0 +1,7 @@
+{
+    "name": "Neetcoin",
+    "symbol": "NEET",
+    "algorithm": "scrypt",
+    "peerMagic": "e5777746",
+    "peerMagicTestnet": "82547825"
+}
