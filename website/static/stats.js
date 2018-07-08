@@ -5,6 +5,8 @@ var poolHashrateData_1;
 var poolHashrateChart_1;
 var poolHashrateData_2;
 var poolHashrateChart_2;
+var poolHashrateData_3;
+var poolHashrateChart_3;
 
 var statData;
 var poolKeys;
@@ -140,6 +142,25 @@ function displayCharts(){
             values: poolHashrateData[2].values
         });
         d3.select('#poolHashrate_2').datum(poolHashrateData_2).call(poolHashrateChart_2);
+      }
+      if (poolHashrateData.length > 3){
+        poolHashrateChart_3 = nv.models.lineChart()
+            .margin({left: 80, right: 30})
+            .x(function(d){ return d[0] })
+            .y(function(d){ return d[1] })
+            .useInteractiveGuideline(true);
+
+        poolHashrateChart_3.xAxis.tickFormat(timeOfDayFormat);
+
+        poolHashrateChart_3.yAxis.tickFormat(function(d){
+            return getReadableHashRateString(d);
+        });
+        poolHashrateData_3 = [];
+        poolHashrateData_3.push({
+            key: poolHashrateData[3].key,
+            values: poolHashrateData[3].values
+        });
+        d3.select('#poolHashrate_3').datum(poolHashrateData_3).call(poolHashrateChart_3);
       }
         return poolHashrateChart_0;
     });

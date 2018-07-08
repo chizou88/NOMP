@@ -1,0 +1,6 @@
+{
+    "name": "Monacoin(testnet)",
+    "symbol": "MONA",
+    "requireShielding": false,
+    "algorithm": "lyra2re2"
+}
