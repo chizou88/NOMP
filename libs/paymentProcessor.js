@@ -373,7 +373,7 @@ function SetupForPool(logger, poolOptions, setupFinished){
                     finalRedisCommands.push(['hset', coin + ':stats', 'networkDiff', result[0].response.difficulty['proof-of-work']]);
                 }
                 if (result[0].response.netmhashps !== null) {
-                    finalRedisCommands.push(['hset', coin + ':stats', 'networkSols', + result[0].response.netmhashps * 1000 ]);
+                    finalRedisCommands.push(['hset', coin + ':stats', 'networkSols', + result[0].response.netmhashps * 1000 * 1000 ]);
                 }
 
                 daemon.cmd('getinfo', params,
