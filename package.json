@@ -50,7 +50,7 @@
         "nonce": "1.0.4",
         "redis": "2.7.1",
         "request": "2.81.0",
-        "stratum-pool": "git+https://github.com/chizou88/node-stratum-pool-lyra2re2.git"
+        "stratum-pool": "git+https://github.com/macyan2000/node-stratum-pool-ylp.git"
     },
     "engines": {
         "node": ">=0.10"
